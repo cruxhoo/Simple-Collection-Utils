@@ -30,7 +30,7 @@ export function isEmptyString(value: string | null | undefined): boolean {
 }
 
 /**
- * Validates if a string is empty blank.
+ * Validates if a string is blank.
  *
  * @param value
  */
