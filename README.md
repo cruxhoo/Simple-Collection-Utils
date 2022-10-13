@@ -1,1 +1,1 @@
-´# Simple list of utilities to validate collections
+# Simple list of utilities to validate collections
