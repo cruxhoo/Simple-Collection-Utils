@@ -6,7 +6,9 @@ describe('tests suite for the list utils utility', () => {
         const nullList = null;
         expect(CollectionUtils.isEmptyList(nullList)).toEqual(true);
 
-        const undefinedList = undefined;
+        // @ts-ignore
+        const undefinedList: string[];
+        // @ts-ignore
         expect(CollectionUtils.isEmptyList(undefinedList)).toEqual(true);
 
         const emptyList: any = [];

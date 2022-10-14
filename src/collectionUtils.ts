@@ -1,5 +1,5 @@
 function isEmptyCollection(a: string | any[] | null | undefined): boolean {
-    return a == null || a.length === 0;
+    return a === null || a === undefined || a.length === 0;
 }
 
 /**
