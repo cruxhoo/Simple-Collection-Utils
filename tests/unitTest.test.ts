@@ -60,3 +60,31 @@ describe('tests suite for the list utils utility', () => {
         expect(CollectionUtils.isBlankString(notBlankString)).toEqual(false);
     });
 });
+
+describe('Test for the object utilities', () => {
+    it('Should validate if a path exist on an object', () => {
+        const object = {
+            a: {
+                b: {
+                    c: 'hello'
+                }
+            }
+        };
+
+        const result = CollectionUtils.pathInObjectExist('a.b.c', object);
+        expect(result).toBeTruthy();
+    });
+
+    it('should fail on non existing path', function () {
+        const object = {
+            a: {
+                b: {
+                    c: 'hello'
+                }
+            }
+        };
+
+        const result = CollectionUtils.pathInObjectExist('a.b.c.d', object);
+        expect(result).toBeFalsy();
+    });
+});
