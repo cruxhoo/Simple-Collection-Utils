@@ -7,6 +7,7 @@
 - isNotEmptyList()
 - isEmptyString()
 - isBlankString()
+- pathExistsInObject()
 ```
 
 ### How to install:
@@ -28,4 +29,15 @@ if (SimpleCollectionUtils.isEmptyList(thisIsAnEmptyList)) {
 if (SimpleCollectionUtils.isBlankString(thisIsAnEmptyList)) {
     // This string only contains whitespaces is empty
 }
+
+const object = {
+    a: {
+        b: {
+            c: 'hello'
+        }
+    }
+};
+
+const result = CollectionUtils.pathExistsInObject('a.b.c', object);
+
 ```

@@ -71,7 +71,7 @@ describe('Test for the object utilities', () => {
             }
         };
 
-        const result = CollectionUtils.pathInObjectExist('a.b.c', object);
+        const result = CollectionUtils.pathExistsInObject('a.b.c', object);
         expect(result).toBeTruthy();
     });
 
@@ -84,7 +84,7 @@ describe('Test for the object utilities', () => {
             }
         };
 
-        const result = CollectionUtils.pathInObjectExist('a.b.c.d', object);
+        const result = CollectionUtils.pathExistsInObject('a.b.c.d', object);
         expect(result).toBeFalsy();
     });
 });

@@ -45,7 +45,7 @@ export function isBlankString(value: string | null | undefined): boolean {
  * @param path dot(.) separated string
  * @param object object to validate
  */
-export function pathInObjectExist(path: string, object: Object): boolean {
+export function pathExistsInObject(path: string, object: Object): boolean {
 
     if(isEmptyCollection(Object.keys(object))) {
         return false;
@@ -63,7 +63,7 @@ export function pathInObjectExist(path: string, object: Object): boolean {
         const objectKey = currentProperty as ObjectKey;
         if(object[objectKey] instanceof Object) {
             const newPath = pathTokens.join('.');
-            return pathInObjectExist(newPath, object[objectKey])
+            return pathExistsInObject(newPath, object[objectKey])
         } else {
             if(isNotEmptyList(pathTokens)) {
                 return false;
