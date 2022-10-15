@@ -1,5 +1,3 @@
-import { exists } from 'fs';
-
 function isEmptyCollection(a: string | any[] | null | undefined): boolean {
     return a === null || a === undefined || a.length === 0;
 }
@@ -42,12 +40,13 @@ export function isBlankString(value: string | null | undefined): boolean {
 
 /**
  * Validates if a path exists on an object
+ *
  * @param path dot(.) separated string
- * @param object object to validate
+ * @param objectValue object to validate
  */
-export function pathExistsInObject(path: string, object: Object): boolean {
+export function pathExistsInObject(path: string, objectValue: Object): boolean {
 
-    if(isEmptyCollection(Object.keys(object))) {
+    if (isEmptyCollection(Object.keys(objectValue))) {
         return false;
     }
 
@@ -58,17 +57,14 @@ export function pathExistsInObject(path: string, object: Object): boolean {
     const pathTokens = path.split('.');
     const currentProperty = pathTokens.shift() as string;
 
-    if (object.hasOwnProperty(currentProperty)) {
-        type ObjectKey = keyof typeof object;
+    if (objectValue.hasOwnProperty(currentProperty)) {
+        type ObjectKey = keyof typeof objectValue;
         const objectKey = currentProperty as ObjectKey;
-        if(object[objectKey] instanceof Object) {
+        if (objectValue[objectKey] instanceof Object) {
             const newPath = pathTokens.join('.');
-            return pathExistsInObject(newPath, object[objectKey])
+            return pathExistsInObject(newPath, objectValue[objectKey])
         } else {
-            if(isNotEmptyList(pathTokens)) {
-                return false;
-            }
-            return true;
+            return isNotEmptyList(pathTokens) ? false : true;
         }
     } else {
         return false;

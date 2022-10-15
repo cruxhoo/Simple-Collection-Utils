@@ -62,6 +62,25 @@ describe('tests suite for the list utils utility', () => {
 });
 
 describe('Test for the object utilities', () => {
+    it('Should return false on an empty object', () => {
+        expect(CollectionUtils.pathExistsInObject('a.b.c', {})).toBeFalsy();
+    });
+
+    it('Should return false on an empty object constructor', () => {
+        expect(CollectionUtils.pathExistsInObject('a.b.c', new Object())).toBeFalsy();
+    });
+
+    it('Should thrown with an blank path', () => {
+        const object = {
+            a: {
+                b: {
+                    c: 'hello'
+                }
+            }
+        };
+        expect(() => {CollectionUtils.pathExistsInObject('   ', object)}).toThrowError('path argument cannot be empty or blank');
+    });
+
     it('Should validate if a path exist on an object', () => {
         const object = {
             a: {

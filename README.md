@@ -1,5 +1,8 @@
 # Simple list of utilities to validate collections
 
+This is meant to be a simple set of utility methods to do simple validations
+over collections. Something similar to the Apache StringUtils in Java.
+
 ### Offers basic methods:
 
 ```typescript
