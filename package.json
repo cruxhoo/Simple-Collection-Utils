@@ -1,6 +1,6 @@
 {
   "name": "simple-collection-utils",
-  "version": "0.0.1-beta",
+  "version": "0.0.2-0",
   "description": "Group of small tools to do validations over a collection",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
